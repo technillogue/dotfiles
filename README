@@ -1,0 +1,14 @@
+Will contain all my configs in the future.
+
+.pdbrc.py provides
+
+1) Reasonable Pdb f_locals handling
+    - Normally, running `a = 2; [a for i in range(2)]` would cause a NameError, because when you can exec with the globals and locals arguments, it uses the stricter class declaration scope rules. Instead, your code runs in one scope: `{**globals, **locals, "_only_globals": globals}`, and the above doesn't raise an error
+    - Normally, you can delete and modify the local namespace, but you will loose your changes as soon as you step, and the debugged program will not see the changes. If you're replacing a list or dict with another list or dict, the original one gets mutated to be the same as your replacement. Otherwise, you get warned and your replacement goes into _only_globals. 
+    - As a consequence of the above, all of your assignments are global by default. However, this isn't a big loss, since even though setting a new local variable appeared to be persistent, the debugged code couldn't see it anyway.
+
+2) debug_line <line number>, as a shorthand for debug <line>, where <line number> defaults to the previous line
+
+3) goto_frame, alias gf, for going to a frame by index
+
+4) Access to the Pdb object through pdb_session, and embed_ipy to start an IPython shell in the Pdb object namespace
