@@ -1,4 +1,5 @@
-Will contain all my configs in the future.
+A set of config files for a more delightful and less toilsome python dev experience. IPython, PDB++, lazygit/git lg, and kakoune for interfaces. Black, mypy, and pylint with sensible configurations so that they're easy and useful to keep quiet. .
+
 
 .pdbrc.py provides
 
