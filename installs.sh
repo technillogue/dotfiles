@@ -8,11 +8,10 @@ pip3 install mypy mypy-extensions typing-extensions pylint black pdbpp pytest py
 sudo apt-get install -t testing kakoune
 pip3 install jedi python-language-server pyls-black pyls-mypy
 
-ln -s .pylintrc $HOME/.pylintrc
-ln -s .bash_aliases $HOME
-ln -s .bashrc $HOME
-ln -s .mypy.ini $HOME
-ln -s .pdbrc.py $HOME
-ln -s .pylintrc $HOME
-ln -s .tmux.conf $HOME
-ln -s kakrc $HOME/.config/kak/
+ln -s $HOME/dev-env/kakrc $HOME/.config/kak/
+ln -s $HOME/dev-env/.bash_aliases $HOME
+ln -s $HOME/dev-env/.bashrc $HOME
+ln -s $HOME/dev-env/.mypy.ini $HOME
+ln -s $HOME/dev-env/.pdbrc.py $HOME
+ln -s $HOME/dev-env/.pylintrc $HOME
+ln -s $HOME/dev-env/.tmux.conf $HOME
