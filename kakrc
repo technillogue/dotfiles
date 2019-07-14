@@ -65,7 +65,6 @@ hook global WinSetOption filetype=python %{
     map global user l "<esc>:lint<ret>" -docstring "lint"
     # lspy
     set-option global lsp_server_configuration pyls.plugins.pylint="true"
-    lint-enable
     set-option global formatcmd 'black - --fast'
     map global user f "<esc>:format<ret>"
     hook global BufWritePre "" %{
