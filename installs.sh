@@ -3,15 +3,18 @@ sudo apt-get update
 sudo apt-get install -t testing tmux pinfo python3-pip ipython3 
 sudo apt-get install lazygit
 
-pip3 install mypy mypy-extensions typing-extensions pylint black pdbpp pytest pytest-profiling pytest-pdb pytest-cov pydocstyle pyenchant
+pip3 install mypy mypy-extensions typing-extensions typeguard pylint black pdbpp pytest pytest-profiling pytest-pdb pytest-cov pydocstyle emanate
 
-sudo apt-get install -t testing kakoune
+sudo apt install libncursesw5-dev pkg-config
+cd $HOME
+git clone https://github.com/mawww/kakoune.git && cd kakoune/src
+make
+PREFIX=$HOME/.local make install
+cd ../..
+rm -rf kakoune
+
+git clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
 pip3 install jedi python-language-server pyls-black pyls-mypy
 
-ln -s $HOME/dev-env/kakrc $HOME/.config/kak/
-ln -s $HOME/dev-env/.bash_aliases $HOME
-ln -s $HOME/dev-env/.bashrc $HOME
-ln -s $HOME/dev-env/.mypy.ini $HOME
-ln -s $HOME/dev-env/.pdbrc.py $HOME
-ln -s $HOME/dev-env/.pylintrc $HOME
-ln -s $HOME/dev-env/.tmux.conf $HOME
+
+emanate

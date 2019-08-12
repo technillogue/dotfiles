@@ -8,6 +8,9 @@ from IPython import embed
 
 
 def catch_errors(method: Callable) -> Callable:
+    # you want to by default only indicate that an internal error has occured
+    # require a flag or env var to give the full internal tb
+    # re-implement the Pdb default error handling for the default method
     @functools.wraps(method)
     def safe_call(self: pdb_module.Pdb, *args: Any, **kwargs: Any) -> Any:
         try:
@@ -21,6 +24,7 @@ def catch_errors(method: Callable) -> Callable:
 
 
 class PdbExtension(pdb_module.Pdb):
+    # we inherit from the Pdb++ object with all of its drop-in replacement hacks
     @catch_errors
     def do_goto_frame(self, arg: str) -> None:
         "go to a frame by number"
@@ -45,7 +49,29 @@ class PdbExtension(pdb_module.Pdb):
         line = lines[line_no].strip()  # no indent
         print(f"running '{line}'")
         self.do_debug(line) # type: ignore
+        # this calls Pdb++.do_debug
         # TODO: check what do_debug ends up doing with namespaces
+    # the problem is tha when your do_debug line exits you don't return to your original debugger
+    # # the curframe context seems to get fucked up for some reason and you're now
+    # # debugging the pdb source
+    # # does this happen with breakpoint() recursive debugging? does it happen with pm recursive debugging?
+    # # usually what you really want is to debug one line in the current namespace
+    # # and ideally update the actual namespace
+    # # as a workaround i used to just go one frame higher and call the assertion statement
+    # # or evaluation function
+    # there you can sort of do the same thing but you can't coneniently exit and come back
+    # # you might want to automatically execute the source code line by line if you really wanted to manipulate the AST
+    #
+    # # finally, also check up on errors raised from recursive debuggers
+    #
+    # if you quit from the post-recursive debugger you get a spammy _pytest/debugging.py
+    # INTERNALERROR which is just a bdb.BdbQuit, so you want to catch that too
+    # and then when you quit the pytest session completely, in addition to seeing the
+    # printed INTERNALERROR bdb.BdbQuit you get the during-handling _pytest.outcomes.Exit
+    #
+    # quitting during recursive debugging in a postmoertm also doesn't work
+    # it's pretty much designed for breakpoint running 
+
 
     @catch_errors
     def default(self, line: str) -> None:

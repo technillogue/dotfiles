@@ -35,7 +35,8 @@ plug "Delapouite/kakoune-buffers" %{
 # highlighters
 
 plug "alexherbo2/toggle-highlighter.kak"
-map global user w ": toggle-highlighter window/ show-whitespaces<ret>" -docstring "show whitespace"
+map global user s ": toggle-highlighter window/ show-whitespaces<ret>" -docstring "show whitespace"
+map global user w ": toggle-highlighter window/ wrap<ret>" -docstring "toggle wrap"
 set-face global Whitespace default+d
 add-highlighter global/ number-lines
 add-highlighter global/ show-matching
@@ -52,11 +53,11 @@ plug "andreyorst/smarttab.kak" %{
 
 # lsp
 
-eval %sh{kak-lsp --kakoune -s $kak_session}
-lsp-enable
-map global normal <space> ":enter-user-mode lsp<ret>"
-map global goto n "<esc>:lsp-find-error<ret>" -docstring "lsp next lint error"
-map global goto p "<esc>:lsp-find-error --previous<ret>" -docstring "lsp previous lint error"
+#eval %sh{kak-lsp --kakoune -s $kak_session}
+#lsp-enable
+#map global normal <space> ":enter-user-mode lsp<ret>"
+#map global goto n "<esc>:lsp-find-error<ret>" -docstring "lsp next lint error"
+#map global goto p "<esc>:lsp-find-error --previous<ret>" -docstring "lsp previous lint error"
 
 
 # python stuff
@@ -64,7 +65,7 @@ hook global WinSetOption filetype=python %{
     set-option global lintcmd kak_pylint
     map global user l "<esc>:lint<ret>" -docstring "lint"
     # lspy
-    set-option global lsp_server_configuration pyls.plugins.pylint="true"
+#    set-option global lsp_server_configuration pyls.plugins.pylint="true"
     set-option global formatcmd 'black - --fast'
     map global user f "<esc>:format<ret>"
     hook global BufWritePre "" %{
