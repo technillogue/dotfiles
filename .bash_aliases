@@ -25,7 +25,7 @@ check_py (){
 }
 
 
-
+alias size="du -sh * 2> /dev/null | sort -h"
 alias ipython="python3 -m IPython"
 alias ipy="python3 -m IPython"
 alias python="python3"
