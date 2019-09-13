@@ -1,7 +1,8 @@
 pip3 install emanate
 emanate
 
-wget https://edef.eu/~technillogue/kak > kak
+wget https://edef.eu/~technillogue/kak.deb > kak
+sudo apt-get install kak.deb
 git clone https://github.com/andreyorst/plug.kak.git ~/.config/kak/plugins/plug.kak
 
 echo "deb http://ppa.launchpad.net/lazygit-team/release/ubuntu eoan main" | sudo tee -a /etc/apt/sources.list.d/lazygit-eoan.list
