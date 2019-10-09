@@ -4,11 +4,11 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME';
 
 alias dx='sshpass -f $HOME/secrets/dx.pass ssh sylvie@dequis.org'
 
-alias edef='sshpass -f $HOME/secrets/edef.pass ssh technillogue@edef.eu'
-alias edefmosh='sshpass -f $HOME/secrets/edef.pass mosh technillogue@edef.eu'
+alias edef='sshpass -f $HOME/secrets/edef.pass ssh technillogue@spock.edef.eu'
+alias edefmosh='sshpass -f $HOME/secrets/edef.pass mosh technillogue@spock.edef.eu'
 alias edefscp='sshpass -f $HOME/secrets/edef.pass scp'
 edefpush (){
-    edefscp "$1" "technillogue@edef.eu:`realpath --relative-to=$HOME $1`";
+    edefscp "$1" "technillogue@spock.edef.eu:`realpath --relative-to=$HOME $1`";
 }
 
 alias nethack="ssh nethack@xd.cm"
