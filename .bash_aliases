@@ -24,6 +24,11 @@ check_py (){
     pytest $1/..;
 }
 
+git_push (){
+	git add -u;
+	git commit -m "$1";
+	git push origin master
+}
 
 alias size="du -sh * 2> /dev/null | sort -h"
 alias ipython="python3 -m IPython"
