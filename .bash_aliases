@@ -15,7 +15,7 @@ alias nethack="ssh nethack@xd.cm"
 
 alias vi_real="/usr/bin/vi"
 alias vi="kak"
-
+alias pip="pip3"
 alias pylint="python3 -m pylint"
 alias pytest="python3 -m pytest"
 check_py (){
