@@ -13,3 +13,4 @@ sudo apt-get install -y lazygit
 
 pip3 install mypy mypy-extensions typing-extensions typeguard pylint black pdbpp pytest pytest-profiling pytest-pdb pytest-cov pydocstyle
 #pip3 install jedi python-language-server pyls-black pyls-mypy
+#see also: gcloud
