@@ -1,0 +1,5 @@
+curl -L https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-278.0.0-linux-x86_64.tar.gz > gcloud.tar.gz
+tar -xf gcloud.tar.gz
+rm gcloud.tar.gz
+./google-cloud-sdk/install.sh
+gcloud init
