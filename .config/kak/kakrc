@@ -33,16 +33,19 @@ plug "Delapouite/kakoune-buffers" %{
 }
 
 # highlighters
-
-plug "alexherbo2/toggle-highlighter.kak"
-map global user s ": toggle-highlighter window/ show-whitespaces<ret>" -docstring "show whitespace"
-map global user w ": toggle-highlighter window/ wrap<ret>" -docstring "toggle wrap"
-set-face global Whitespace default+d
-add-highlighter global/ number-lines
-add-highlighter global/ show-matching
-set-face global MatchingChar default+Bu #blink underling 
-add-highlighter global/ column 80 red+f
-
+plug "alexherbo2/prelude.kak" %{
+    require-module prelude
+    plug "alexherbo2/toggle-highlighter.kak" %{
+        require-module toggle-highlighter
+        map global user s ": toggle-highlighter window/ show-whitespaces<ret>" -docstring "show whitespace"
+        map global user w ": toggle-highlighter window/ wrap -word<ret>" -docstring "toggle wrap"
+    }
+    set-face global Whitespace default+d
+    add-highlighter global/ number-lines
+    add-highlighter global/ show-matching
+    set-face global MatchingChar default+Bu #blink underling 
+    add-highlighter global/ column 80 red+f
+}
 ## tabs
 plug "andreyorst/smarttab.kak" defer smarttab %{
     # when `backspace' is pressed, 4 spaces are deleted at once
