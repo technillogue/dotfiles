@@ -35,6 +35,7 @@ plug "Delapouite/kakoune-buffers" %{
 # highlighters
 
 plug "alexherbo2/toggle-highlighter.kak"
+require-module toggle-highlighter
 map global user s ": toggle-highlighter window/ show-whitespaces<ret>" -docstring "show whitespace"
 map global user w ": toggle-highlighter window/ wrap<ret>" -docstring "toggle wrap"
 set-face global Whitespace default+d
@@ -70,7 +71,7 @@ hook global WinSetOption filetype=python %{
     map global user l "<esc>:lint<ret>" -docstring "lint"
     # lspy
 #    set-option global lsp_server_configuration pyls.plugins.pylint="true"
-    set-option global formatcmd 'black - --fast'
+    set-option global formatcmd 'black - --fast -l 81'
     map global user f "<esc>:format<ret>"
     hook global BufWritePre "" %{
         echo "f o r m a t"
@@ -79,3 +80,10 @@ hook global WinSetOption filetype=python %{
 }
 
 set global ui_options ncurses_assistant=cat
+
+#define-command open-py eval -params 1 %{edit %py{__import__("$1").__file__} }
+
+plug "kak-lsp/kak-lsp" do %{
+    cargo install --locked --force --path .
+}
+ 

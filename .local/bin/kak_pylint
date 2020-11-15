@@ -1,0 +1,4 @@
+#!/bin/sh
+#pylama -l pylint,mypy  --msg-template='{path}:{line:}:{column}: {category}: {msg}'  $1 |
+pylint --msg-template='{path}:{line:}:{column}: {category}: {msg}'  -sn -rn $1 |
+        awk '{split($0,a,":"); printf( "%s:%s:%s: %s: %s\n",a[1],a[2],a[3]+1,a[4],a[5])}'
