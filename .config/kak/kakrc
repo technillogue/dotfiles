@@ -13,6 +13,7 @@ plug "Delapouite/kakoune-buffers" %{
     # Suggested aliases
 
     map global buffers r ":edit ~/misc/kak-requests<ret>" -docstring "edit kak-requests"
+    map global buffers l ":buffer *lint-output*<ret>" -docstring "*lint-output*"
     alias global bd delete-buffer
     alias global bf buffer-first
     alias global bl buffer-last
@@ -69,12 +70,13 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
 
 # python stuff
 hook global WinSetOption filetype=python %{
-    set-option global lintcmd kak_pylint
+    set-option global lintcmd "kak_pylint"
     map global user l "<esc>:lint<ret>" -docstring "lint"
+    map global user n "<esc>:lint-next-error<ret>" -docstring "next lint message"
     # lspy
 #    set-option global lsp_server_configuration pyls.plugins.pylint="true"
-    set-option global formatcmd 'black - --fast'
-    map global user f "<esc>:format<ret>"
+    set-option global formatcmd 'black - --fast -l 81'
+    map global user f "<esc>:format<ret>" -docstring "black"
     hook global BufWritePre "" %{
         echo "f o r m a t"
         format
@@ -82,3 +84,10 @@ hook global WinSetOption filetype=python %{
 }
 
 set global ui_options ncurses_assistant=cat
+
+#define-command open-py eval -params 1 %{edit %py{__import__("$1").__file__} }
+
+plug "kak-lsp/kak-lsp" do %{
+    cargo install --locked --force --path .
+}
+ 

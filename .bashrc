@@ -119,4 +119,3 @@ if [ -f '/home/doriancorvus/google-cloud-sdk/path.bash.inc' ]; then . '/home/dor
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/doriancorvus/google-cloud-sdk/completion.bash.inc' ]; then . '/home/doriancorvus/google-cloud-sdk/completion.bash.inc'; fi
 
-export PAGER=most
