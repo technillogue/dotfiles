@@ -15,9 +15,9 @@ alias nethack="ssh nethack@xd.cm"
 
 alias vi_real="/usr/bin/vi"
 alias vi="kak"
-alias pip="pip3"
-alias pylint="python3 -m pylint"
-alias pytest="python3 -m pytest"
+alias pip="python3.9 -m pip"
+alias pylint="python3.9 -m pylint"
+alias pytest="python3.9 -m pytest"
 check_py (){
 	pylint $1;
 	mypy $1;
@@ -31,7 +31,9 @@ git_push (){
 }
 
 alias size="du -sh * 2> /dev/null | sort -h"
-alias ipython="python3 -m IPython"
-alias ipy="python3 -m IPython"
-alias python="python3"
+alias ipython="python3.9 -m IPython"
+alias ipy="python3.9 -m IPython"
+alias python="python3.9"
+alias py8="python3.8"
 alias tor-browser="pushd $HOME/apps/tor-browser_en-US; ./start-tor-browser.desktop; popd;"
+alias tmux="launch-tmux"

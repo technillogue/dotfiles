@@ -11,6 +11,8 @@ sudo apt-get update
 sudo apt-get install -y -t testing tmux pinfo ipython3 
 sudo apt-get install -y lazygit
 
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 pip3 install mypy mypy-extensions typing-extensions typeguard pylint black pdbpp pytest pytest-profiling pytest-pdb pytest-cov pydocstyle
 #pip3 install jedi python-language-server pyls-black pyls-mypy
 #see also: gcloud
