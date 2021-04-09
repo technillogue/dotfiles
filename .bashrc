@@ -24,6 +24,7 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+export PATH=$PATH:/opt/radix/timberland/exec
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
@@ -119,3 +120,5 @@ if [ -f '/home/doriancorvus/google-cloud-sdk/path.bash.inc' ]; then . '/home/dor
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/doriancorvus/google-cloud-sdk/completion.bash.inc' ]; then . '/home/doriancorvus/google-cloud-sdk/completion.bash.inc'; fi
 
+
+/usr/bin/fish

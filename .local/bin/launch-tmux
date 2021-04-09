@@ -2,6 +2,7 @@
 tmux new-session -n "edef" -d "sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu \"tmux attach\""
 tmux new-window -n "ipython" "python3.9 -m IPython"
 tmux new-window -n "editor" "bash --init-file <(echo \"source ~/.bashrc; shopt -s expand_aliases; kak\")"
+tmux new-window -n "ammonite" "cd monorepo; bazel run //timberland/jvm:debug"
 tmux split-window -h
 tmux new-window 
 tmux attach-session -d 
