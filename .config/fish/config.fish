@@ -33,8 +33,10 @@ end
 
 
 alias fix-bluetooth="sudo systemctl start bluetooth"
-alias clip="tee >(xclip -sel clip -in)"
+alias clip="xclip -sel clip -in"
 
 function getpost
     curl --data-binary @/dev/stdin https://public.getpost.workers.dev | grep share\ link | awk -F': ' '{print $2}' |xclip -sel clip;
 end
+
+set -a -U fish_user_paths /opt/radix/timberland/exec 
