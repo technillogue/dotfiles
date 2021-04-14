@@ -1,0 +1,6 @@
+#!/bin/bash
+cd ~/monorepo
+bazel build //tools:pushable-terraform-data --host_force_python=PY3
+bazel build //tools:gen-cloud-upload-config
+./tools/push_updates.sh ./bazel-bin/tools/modules.tar.gz ./bazel-bin/tools/cloud_upload_config.sh
+

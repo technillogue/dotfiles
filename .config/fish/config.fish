@@ -1,5 +1,5 @@
 alias nethack="ssh nethack@xd.cm"
-alias edef='sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spoc.edef.eu "tmux attach"'
+alias edef='sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu "tmux attach"'
 
 alias size="du -sh * 2> /dev/null | sort -h"
 
@@ -32,7 +32,6 @@ function run-timberland-from-scratch
 end
 
 
-alias fix-bluetooth="sudo systemctl start bluetooth"
 alias clip="xclip -sel clip -in"
 
 function getpost

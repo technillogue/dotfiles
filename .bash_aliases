@@ -32,7 +32,6 @@ alias nukebuildinstall-timberland="sudo scripts/runtime_util.sh -n && bazel buil
 alias rebuild-and-run-timberland-from-scratch="time (sudo scripts/runtime_util.sh -n && bazel build //timberland/jvm:timberland-deb --noremote_upload_local_results && sudo ./scripts/runtime_util.sh -i && timberland disable runtime && timberland enable kafka && timberland start); notify-send 'timberland done'"
 alias run-timberland-from-scratch="time (sudo scripts/runtime_util.sh -n && sudo ./scripts/runtime_util.sh -i && timberland disable runtime && timberland enable kafka && timberland start); notify-send 'timberland done'"
 
-alias fix-bluetooth="sudo systemctl start bluetooth"
 alias clip="tee >(xclip -sel clip -in)"
 
 function getpost() {
