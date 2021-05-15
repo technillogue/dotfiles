@@ -1,0 +1,3 @@
+[submodule "kakoune-themes"]
+	path = .config/kak/kakoune-themes
+	url = git@github.com:technillogue/kakoune-themes.git
