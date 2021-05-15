@@ -1,7 +1,9 @@
+# nice ssh's
 alias nethack="ssh nethack@xd.cm"
 alias edef='sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu "tmux attach"'
 
-alias size="du -sh * 2> /dev/null | sort -h"
+# radix stuff
+set -a -U fish_user_paths /opt/radix/timberland/exec
 
 alias nuke-timberland="sudo scripts/runtime_util.sh -n"
 alias nukeinstall-timberland="sudo scripts/runtime_util.sh -n && sudo scripts/runtime_util.sh -i"
@@ -20,7 +22,6 @@ function rebuild-and-run-timberland-from-scratch
     notify-send 'timberland done'
 end
 
-
 function run-timberland-from-scratch
     time begin
     	sudo scripts/runtime_util.sh -n
@@ -31,11 +32,22 @@ function run-timberland-from-scratch
     notify-send 'timberland done'
 end
 
-
-alias clip="xclip -sel clip -in"
-
-function getpost
-    curl --data-binary @/dev/stdin https://public.getpost.workers.dev | grep share\ link | awk -F': ' '{print $2}' |xclip -sel clip;
+# clipboards and pastebins <3
+if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null
+    echo "windows, use clip.exe"
+    alias clip="clip.exe"
+else
+    echo "probably an x server, use xclip -sel clip"
+    # when should xsel be used?
+    alias clip="xclip -sel clip -in"
 end
 
-set -a -U fish_user_paths /opt/radix/timberland/exec 
+function getpost
+    curl --data-binary @/dev/stdin https://public.getpost.workers.dev | grep share\ link | awk -F': ' '{print $2}' |clip;
+end
+
+# misc
+set -a -U fish_user_paths $HOME/.local/bin
+alias size="du -sh * 2> /dev/null | sort -h"
+alias col1="awk {print $2}"
+alias col2="awk {print $2}"
