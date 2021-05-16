@@ -33,15 +33,18 @@ function run-timberland-from-scratch
 end
 
 # clipboards and pastebins <3
-if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null
-    echo "windows, use clip.exe"
-    alias clip="clip.exe"
-else
-    echo "probably an x server, use xclip -sel clip"
-    # when should xsel be used?
-    alias clip="xclip -sel clip -in"
+set clip_alias_exists (alias | grep clip)
+if test -z clip_alias_exists # zero matches
+    if grep -qEi "(Microsoft|WSL)" /proc/version &> /dev/null 
+        echo "windows, use clip.exe"
+        alias clip="clip.exe"
+    else
+        echo "probably an x server, use xclip -sel clip"
+        # when should xsel be used?
+        alias clip="xclip -sel clip -in"
+    end
 end
-
+    
 function getpost
     curl --data-binary @/dev/stdin https://public.getpost.workers.dev | grep share\ link | awk -F': ' '{print $2}' |clip;
 end
