@@ -3,6 +3,11 @@
 # plugins
 
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
+source ~/.config/kak/kakoune-themes/colors/ayu-dark.kak
+source ~/.config/kak/kakoune-themes/filetype/python.kak
+#source ~/.config/kak/kakoune-themes/filetype/sh.kak
+#source ~/.config/kak/kakoune-themes/filetype/todo.kak
+
 
 ## buffers
 
