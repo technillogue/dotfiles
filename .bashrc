@@ -121,8 +121,4 @@ if [ -f '/home/doriancorvus/google-cloud-sdk/path.bash.inc' ]; then . '/home/dor
 if [ -f '/home/doriancorvus/google-cloud-sdk/completion.bash.inc' ]; then . '/home/doriancorvus/google-cloud-sdk/completion.bash.inc'; fi
 
 
-<<<<<<< HEAD
 source <(kubectl completion bash)
-=======
-#/usr/bin/fish
->>>>>>> aecca1d31ae652be1542c2df4fa60b842df24832
