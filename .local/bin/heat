@@ -1,0 +1,2 @@
+#!/bin/bash
+sensors -u|grep "temp.*input"|awk '{sum += $2; if ($2) total += 1} END {printf("%.1f°C", sum/total)}'

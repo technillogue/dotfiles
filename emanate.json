@@ -1,1 +1,1 @@
-{"ignore": ["README", "notes", "installs.sh", "gcloud"]}
+{"ignore": ["README", "notes", "installs.sh", "gcloud", "Pipfile"]}

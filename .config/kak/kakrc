@@ -9,6 +9,10 @@ source ~/.config/kak/kakoune-themes/filetype/python.kak
 #source ~/.config/kak/kakoune-themes/filetype/todo.kak
 
 
+plug "lePerdu/kakboard" %{
+    hook global WinCreate .* %{ kakboard-enable }
+}
+
 ## buffers
 
 plug "Delapouite/kakoune-buffers" %{
