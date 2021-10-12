@@ -115,13 +115,13 @@ if ! shopt -oq posix; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/doriancorvus/google-cloud-sdk/path.bash.inc' ]; then . '/home/doriancorvus/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '$HOME:/google-cloud-sdk/path.bash.inc' ]; then . '$HOME:/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/doriancorvus/google-cloud-sdk/completion.bash.inc' ]; then . '/home/doriancorvus/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '$HOME:/google-cloud-sdk/completion.bash.inc' ]; then . '$HOME:/google-cloud-sdk/completion.bash.inc'; fi
 
 
-source <(kubectl completion bash)
+#source <(kubectl completion bash)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

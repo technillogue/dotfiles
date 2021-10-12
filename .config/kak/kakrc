@@ -3,7 +3,7 @@
 # plugins
 
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
-source ~/.config/kak/kakoune-themes/colors/ayu-dark.kak
+#source ~/.config/kak/kakoune-themes/colors/ayu-dark.kak
 source ~/.config/kak/kakoune-themes/filetype/python.kak
 #source ~/.config/kak/kakoune-themes/filetype/sh.kak
 #source ~/.config/kak/kakoune-themes/filetype/todo.kak
@@ -96,7 +96,7 @@ set global ui_options ncurses_assistant=cat
 
 #define-command open-py eval -params 1 %{edit %py{__import__("$1").__file__} }
 
-plug "kak-lsp/kak-lsp" do %{
-    cargo install --locked --force --path .
-}
+# plug "kak-lsp/kak-lsp" do %{
+#     cargo install --locked --force --path .
+# }
  
