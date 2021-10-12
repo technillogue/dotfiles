@@ -96,7 +96,7 @@ set global ui_options ncurses_assistant=cat
 
 #define-command open-py eval -params 1 %{edit %py{__import__("$1").__file__} }
 
-plug "kak-lsp/kak-lsp" do %{
-    cargo install --locked --force --path .
-}
+# plug "kak-lsp/kak-lsp" do %{
+#     cargo install --locked --force --path .
+# }
  
