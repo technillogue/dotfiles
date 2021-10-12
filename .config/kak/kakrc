@@ -3,8 +3,8 @@
 # plugins
 
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
-source ~/.config/kak/kakoune-themes/colors/ayu-dark.kak
-source ~/.config/kak/kakoune-themes/filetype/python.kak
+#source ~/.config/kak/kakoune-themes/colors/ayu-dark.kak
+#source ~/.config/kak/kakoune-themes/filetype/python.kak
 #source ~/.config/kak/kakoune-themes/filetype/sh.kak
 #source ~/.config/kak/kakoune-themes/filetype/todo.kak
 
@@ -84,7 +84,7 @@ hook global WinSetOption filetype=python %{
     map global user n "<esc>:lint-next-error<ret>" -docstring "next lint message"
     # lspy
 #    set-option global lsp_server_configuration pyls.plugins.pylint="true"
-    set-option global formatcmd 'black - --fast -l 81'
+    set-option global formatcmd 'black - --fast'
     map global user f "<esc>:format<ret>" -docstring "black"
     hook global BufWritePre "" %{
         echo "f o r m a t"

@@ -10,10 +10,8 @@ alias radix01="ssh radix@144.121.38.136"
 set -U demo_ip "18.222.138.151"
 set -U farm_ip "34.229.89.110"
 
-set -a -U fish_user_paths $HOME/.fly/bin
 # radix stuff
-set -a -U fish_user_paths /opt/radix/timberland/exec
-
+#set -a -U fish_user_paths /opt/radix/timberland/exec
 alias nuke-timberland="sudo scripts/runtime_util.sh -n"
 alias nukeinstall-timberland="sudo scripts/runtime_util.sh -n && sudo scripts/runtime_util.sh -i"
 alias build-timberland="bazel build //timberland/jvm:timberland-deb --noremote_upload_local_results"
@@ -28,7 +26,7 @@ function run-timberland-from-scratch
     	and timberland enable minio
     	and timberland disable nginx
     	and timberland start
-    	and timberland enable nginx
+#    	and timberland enable nginx
     end
     notify-send 'timberland done'
 end
@@ -61,10 +59,11 @@ function getpost
 end
 
 # misc
-set -a -U fish_user_paths $HOME/.local/bin
+set -e fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $HOME/go/bin 
 alias size="du -sh * 2> /dev/null | sort -h"
-alias col1="awk {print $2}"
-alias col2="awk {print $2}"
+alias col1='awk {print $2}'
+alias col2='awk {print $2}'
 
 alias notouchpad='xinput set-prop 12 "Device Enabled" 0'
 alias yestouchpad='xinput set-prop 12 "Device Enabled" 1'
@@ -80,5 +79,9 @@ function pycheck
 end
 
 
-
+alias mob="curl -s localhost:9090/wallet -X POST -H 'Content-type: application/json' -d"
 alias ilia "ssh -i ~/.ssh/wyrt_id_rsa -p 8009 name@24.247.146.161"
+
+#if -z ~/dotfiles/google-cloud-sdk/path.fish.inc;
+#    source ~/dotfiles/google-cloud-sdk/path.fish.inc;
+#end
