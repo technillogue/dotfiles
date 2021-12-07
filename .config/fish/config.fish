@@ -5,6 +5,7 @@ alias earnest='sshpass -f $HOME/secrets/earnest.pass ssh -t earnest@192.168.1.15
 alias demo='ssh -i $HOME/.ssh/sylvie-dev.pem ubuntu@18.222.138.151'
 alias newwhalefarm="ssh -i ~/.ssh/sylvie-ci-dev.pem ubuntu@34.229.89.110"
 alias radix01="ssh radix@144.121.38.136"
+alias tor='pushd ~/Downloads/tor-browser_en-US/; ./start-tor-browser.desktop; popd'
 
 
 set -U demo_ip "18.222.138.151"
@@ -76,6 +77,11 @@ alias pip3.9="python3.9 -m pip"
 function pycheck
     python3.9 -m pylint $argv &
     python3.9 -m mypy $argv
+end
+
+
+function foo
+    echo foo
 end
 
 
