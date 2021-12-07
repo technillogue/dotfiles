@@ -60,10 +60,10 @@ end
 
 # misc
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $HOME/go/bin 
+set -U fish_user_paths $HOME/.local/bin $HOME/go/bin  $HOME/.fly/bin
 alias size="du -sh * 2> /dev/null | sort -h"
-alias col1='awk {print $2}'
-alias col2='awk {print $2}'
+alias col1='awk {print \$2}'
+alias col2='awk {print \$2}'
 
 alias notouchpad='xinput set-prop 12 "Device Enabled" 0'
 alias yestouchpad='xinput set-prop 12 "Device Enabled" 1'

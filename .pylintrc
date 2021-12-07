@@ -59,6 +59,7 @@ disable=
     missing-docstring,
     protected-access,
     too-few-public-methods,
+    fixme,
     # handled by black
     format
     # bad-continuation # maybe?
