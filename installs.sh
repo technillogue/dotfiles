@@ -1,6 +1,6 @@
 git clone https://github.com/technillogue/dotfiles
 sudo apt-get update
-sudo apt-get install kakoune fish tmux python3-pip ripgrep
+sudo apt-get -yy install kakoune fish tmux python3-pip ripgrep
 pip3 install emanate
 ~/.local/bin/emanate
 
