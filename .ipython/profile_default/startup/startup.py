@@ -4,9 +4,12 @@ import os, sys, json
 import subprocess
 from pathlib import Path
 from typing import Union
+
 def clip(text: str) -> None:
     subprocess.run("fish -c clip", shell=True, input=text.encode())
 
+def post(text: str) -> None:
+    subprocess.run("fish -c post", shell=True, input=text.encode())
 
 def importpath(path: Union[str, Path]) -> None:
     if isinstance(path, Path):

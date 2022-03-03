@@ -1,5 +1,5 @@
 #!/bin/fish
-curl --data-binary @/dev/stdin https://public.getpost.workers.dev | grep share\ link | awk -F': ' '{print $2}' |xclip -sel clip -in;
+curl --data-binary @/dev/stdin https://public.getpost.workers.dev | tee /tmp/post |  grep share\ link | awk -F': ' '{print $2}' |xclip -sel clip -in;
 xclip -sel clip -out;
 
 

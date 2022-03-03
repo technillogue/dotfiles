@@ -98,9 +98,12 @@ map global user w "<esc>:addhl buffer/ wrap<ret>" -docstring "enable wrap"
 map global user W "<esc>:rmhl buffer/wrap<ret>" -docstring "disable wrap"
 map global user s "<esc>:addhl buffer/ show-whitespaces<ret>" -docstring "show whitespace"
 map global user S "<esc>:rmhl buffer/show-whitespaces<ret>" -docstring "disable whitespace"
+map global user r '<esc>"/y<esc>' -docstring "search selection"
 #define-command open-py eval -params 1 %{edit %py{__import__("$1").__file__} }
 
 # plug "kak-lsp/kak-lsp" do %{
 #     cargo install --locked --force --path .
 # }
  
+
+

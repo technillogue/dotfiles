@@ -1,6 +1,7 @@
-#!/bin/sh
-tmux new-session -n "edef" -d "sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu \"tmux attach\""
-tmux new-window -n "ipython" "python3.9 -m IPython &&  fish"
+#!/bin/fish
+tmux new-session -n "pg" -d "pgcli $dev_db && fish"
+#tmux new-session -n "edef" -d "sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu \"tmux attach\""
+tmux new-window -n "ipython" "python3.9 -m IPython && fish"
 #tmux new-window -n "ammonite" "cd urep-scala; bazel run //:amm && fish"
 #tmux split-window -h
 #tmux new-window -n "editor" "kak && fish"

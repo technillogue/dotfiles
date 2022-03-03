@@ -1,5 +1,5 @@
 # nice ssh's
-alias nethack="ssh nethack@xd.cm"
+alias nethack="ssh nethack@hardfought.org"
 alias edef='sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu "tmux attach"'
 alias earnest='sshpass -f $HOME/secrets/earnest.pass ssh -t earnest@192.168.1.154 "tmux attach"'
 alias demo='ssh -i $HOME/.ssh/sylvie-dev.pem ubuntu@18.222.138.151'
@@ -61,9 +61,9 @@ end
 
 # misc
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $HOME/go/bin  $HOME/.fly/bin
+set -U fish_user_paths $HOME/.local/bin $HOME/go/bin $HOME/.fly/bin $HOME/.cargo/bin
 alias size="du -sh * 2> /dev/null | sort -h"
-alias col1='awk {print \$2}'
+alias col1='awk {print \$1}'
 alias col2='awk {print \$2}'
 
 alias notouchpad='xinput set-prop 12 "Device Enabled" 0'
@@ -80,14 +80,14 @@ function pycheck
 end
 
 
-function foo
-    echo foo
+if test -f ~/dotfiles/google-cloud-sdk/path.fish.inc
+    source ~/dotfiles/google-cloud-sdk/path.fish.inc
 end
 
 
 alias mob="curl -s localhost:9090/wallet -X POST -H 'Content-type: application/json' -d"
 alias ilia "ssh -i ~/.ssh/wyrt_id_rsa -p 8009 name@24.247.146.161"
 
-#if -z ~/dotfiles/google-cloud-sdk/path.fish.inc;
-#    source ~/dotfiles/google-cloud-sdk/path.fish.inc;
-#end
+function fish_right_prompt
+ #intentionally left blank
+end
