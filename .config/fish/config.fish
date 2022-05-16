@@ -1,14 +1,5 @@
 # nice ssh's
 alias nethack="ssh nethack@xd.cm"
-alias edef='sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu "tmux attach"'
-alias earnest='sshpass -f $HOME/secrets/earnest.pass ssh -t earnest@192.168.1.154 "tmux attach"'
-alias demo='ssh -i $HOME/.ssh/sylvie-dev.pem ubuntu@18.222.138.151'
-alias newwhalefarm="ssh -i ~/.ssh/sylvie-ci-dev.pem ubuntu@34.229.89.110"
-alias radix01="ssh radix@144.121.38.136"
-
-
-set -U demo_ip "18.222.138.151"
-set -U farm_ip "34.229.89.110"
 
 # radix stuff
 #set -a -U fish_user_paths /opt/radix/timberland/exec
