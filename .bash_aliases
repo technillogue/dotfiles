@@ -2,12 +2,6 @@ alias fuck='sudo !!';
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME';
 
-alias dx='sshpass -f $HOME/secrets/dx.pass ssh sylvie@dequis.org'
-
-alias edef='sshpass -f $HOME/secrets/edef.pass ssh -t technillogue@spock.edef.eu "tmux attach"'
-alias edefmosh='sshpass -f $HOME/secrets/edef.pass mosh technillogue@spock.edef.eu'
-alias edefscp='sshpass -f $HOME/secrets/edef.pass scp'
-
 alias nethack="ssh nethack@xd.cm"
 
 alias vi_real="/usr/bin/vi"
