@@ -61,17 +61,25 @@ end
 
 # misc
 set -e fish_user_paths
-set -U fish_user_paths $HOME/.local/bin $HOME/go/bin $HOME/.fly/bin $HOME/.cargo/bin
+set -U fish_user_paths $HOME/.local/bin $HOME/go/bin $HOME/.fly/bin $HOME/.cargo/bin /usr/local/cuda/bin
 alias size="du -sh * 2> /dev/null | sort -h"
 alias col1='awk {print \$1}'
 alias col2='awk {print \$2}'
+alias col3='awk {print \$3}'
+alias col4='awk {print \$4}'
+alias col5='awk {print \$5}'
+alias col6='awk {print \$6}'
+alias col7='awk {print \$7}'
+function line -a line_no
+    awk "NR==$line_no"
+end
 
 alias notouchpad='xinput set-prop 12 "Device Enabled" 0'
 alias yestouchpad='xinput set-prop 12 "Device Enabled" 1'
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME';
 alias fishconfig="kak ~/.config/fish/config.fish ~/.bash_aliases ~/.bashrc && source ~/.config/fish/config.fish"
-
+alias bell="printf '\a'"
 # python
 alias pip3.9="python3.9 -m pip"
 function pycheck
@@ -79,15 +87,31 @@ function pycheck
     python3.9 -m mypy $argv
 end
 
+alias mob="curl -s localhost:9090/wallet -X POST -H 'Content-type: application/json' -d"
+alias ilia "ssh -i ~/.ssh/wyrt_id_rsa -p 8009 name@24.247.146.161"
 
 if test -f ~/dotfiles/google-cloud-sdk/path.fish.inc
     source ~/dotfiles/google-cloud-sdk/path.fish.inc
 end
 
 
-alias mob="curl -s localhost:9090/wallet -X POST -H 'Content-type: application/json' -d"
-alias ilia "ssh -i ~/.ssh/wyrt_id_rsa -p 8009 name@24.247.146.161"
 
 function fish_right_prompt
  #intentionally left blank
 end
+
+
+function url_size 
+    curl -sLI $argv[1] | rg -i content-length | col2 | sed 's/\s//' | numfmt --to=iec-i
+end
+
+
+function wormhole
+  if test "$argv[1]" = "receive"
+    command wormhole receive --accept-file $argv[2]
+  else
+    command wormhole $argv
+  end
+end
+
+alias _rget 'curl -s -H "Authorization: Token $REPLICATE_API_TOKEN"'

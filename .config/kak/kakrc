@@ -65,7 +65,7 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
 } config %{
     # these languages will use `expandtab' behavior
     echo -debug "config smarttab"
-    hook global WinSetOption filetype=(rust|markdown|kak|lisp|py|python|sh|perl|sql) expandtab
+    hook global WinSetOption filetype=(rust|markdown|kak|lisp|py|python|sh|perl|sql|typescript|javascript|ts|tsx|js|jsx|terraform|go) expandtab
 }
 # }
 # lsp
@@ -91,6 +91,22 @@ hook global WinSetOption filetype=python %{
         format
     }
 }
+hook global WinSetOption filetype=typescript %{
+    set-option global formatcmd "npx prettier --stdin-filepath %val{bufname}"
+    map global user f "<esc>:format<ret>" -docstring "prettier"
+    expandtab
+}
+
+hook global WinSetOption filetype=javascript %{
+    set-option global formatcmd "npx prettier --stdin-filepath %val{bufname}"
+    map global user f "<esc>:format<ret>" -docstring "prettier"
+    expandtab
+}
+hook global WinSetOption filetype=go %{
+    set-option global formatcmd "gofmt"
+    map global user f "<esc>:format<ret>" -docstring "gofmt"
+    expandtab
+}
 
 set global ui_options ncurses_assistant=cat
 
@@ -104,6 +120,16 @@ map global user r '<esc>"/y<esc>' -docstring "search selection"
 # plug "kak-lsp/kak-lsp" do %{
 #     cargo install --locked --force --path .
 # }
- 
 
+define-command -hidden -docstring \
+"select a word under cursor, or add cursor on next occurrence of current selection" \
+select-or-add-cursor %{
+    try %{
+        execute-keys "<a-k>\A.\z<ret>"
+        execute-keys -save-regs '' "_<a-i>w*"
+    } catch %{
+        execute-keys -save-regs '' "_*<s-n>"
+    } catch nop
+}
 
+map global normal '<c-d>' ': select-or-add-cursor<ret>' -docstring "add cursor on current word, and jump to the next match" 

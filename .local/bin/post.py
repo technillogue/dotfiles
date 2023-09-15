@@ -14,7 +14,7 @@ xclip -sel clip -out;
 # except (FileNotFoundError, IndexError):
 #     data = sys.stdin.read()
 
-# r = requests.post("https://getpost.bitsandpieces.io/post", data)
+# r = requests.post("https://getpost.bitsandpieces.io/post", data={"upfile":data})
 # print(r.text, file=sys.stderr)
 # link = re.search(r"https://getpost.*", r.text).group(0)
 
